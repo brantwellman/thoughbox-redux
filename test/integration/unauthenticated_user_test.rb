@@ -5,7 +5,7 @@ class UnauthenticatedUserTest < ActionDispatch::IntegrationTest
     visit root_path
 
     assert_equal portal_path, current_path
-    assert page.has_link('Log In')
-    assert page.has_link('Sign Up')
+    assert page.has_link?('Log In')
+    assert page.has_link?('Sign Up')
   end
 end
