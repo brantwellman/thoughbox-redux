@@ -14,6 +14,11 @@ end
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
 
+  # def login(user)
+  #   visit login_path
+  #   fill_in "Email", with:
+  # end
+
   def teardown
     reset_session!
   end

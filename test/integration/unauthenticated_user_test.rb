@@ -45,4 +45,18 @@ class UnauthenticatedUserTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?("Password confirmation doesn't match Password")
   end
+
+  test "exitsting user can login" do
+    user = User.create(email: "brant@email.com", password: "password")
+
+    visit root_path
+    click_on "Log In"
+    fill_in "Email", with: "brant@email.com"
+    fill_in "Password", with: 'password'
+    fill_in "Password confirmation", with: 'password'
+    click_on "Submit"
+
+    assert root_path, current_path
+    assert page.has_content?('All of the Links')
+  end
 end
