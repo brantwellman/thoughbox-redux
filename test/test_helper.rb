@@ -16,9 +16,9 @@ class ActionDispatch::IntegrationTest
 
   def login(user)
     visit login_path
-    fill_in "Email", with: 'brant@email.com'
-    fill_in "Password", with: 'password'
-    fill_in "Password confirmation", with: 'password'
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    fill_in "Password confirmation", with: user.password
     click_on "Submit"
   end
 
