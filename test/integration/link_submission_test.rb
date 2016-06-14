@@ -9,7 +9,7 @@ class AuthenticatedUserLinkSubmissionTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?('Submit your happy link here')
 
-    fill_in "Url", with: "www.turing.io"
+    fill_in "Url", with: "https://www.turing.io/"
     fill_in "Title", with: "Turing School"
     click_on "Submit"
 
