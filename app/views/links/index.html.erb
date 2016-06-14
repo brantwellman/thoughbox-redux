@@ -13,5 +13,6 @@
 <h1>All of the Links</h1>
 
 <% @links.each do |link| %>
-  <%= link_to link.title, "#{link.url}"  %>
+  <%= link_to link.title, "#{link.url}" %>
+  <br/>
 <% end %>
