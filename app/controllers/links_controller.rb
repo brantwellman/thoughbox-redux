@@ -22,7 +22,8 @@ class LinksController < ApplicationController
     if @link.save
       redirect_to root_path
     else
-      redirect_to root_path
+      flash[:errors] = @link.errors.full_messages.join(', ')
+      redirect_to edit_link_path
     end
   end
 

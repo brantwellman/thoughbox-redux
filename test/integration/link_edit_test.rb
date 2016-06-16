@@ -37,7 +37,20 @@ class AuthenticatedUserLinkEditTest < ActionDispatch::IntegrationTest
   end
 
   test "user cannot create invalid link through edit" do
-    skip
+    user = User.create(email: "brant@email.com", password: 'password')
+    Link.create(url: "https://www.turing.io/", title: "Turing School", user_id: user.id)
+
+    login(user)
+
+    assert page.has_button?('Edit')
+
+    click_on 'Edit'
+
+    fill_in 'Title', with: "Google"
+    fill_in 'Url', with: 'https:???   www.google.com'
+    click_on 'Submit'
+
+    assert page.has_content?('Url is not a valid URL')
   end
 
 end
